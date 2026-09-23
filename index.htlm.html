@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Future Forms: Will, Be Going To & Present Progressive</title>
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <style>
+    :root {
+      --font-heading: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --font-code: 'JetBrains Mono', monospace;
+
+      /* Primary Brand / Layout Colors */
+      --bg-base: #f8fafc;
+      --bg-surface: #ffffff;
+      --bg-surface-elevated: #ffffff;
+      --border-subtle: #e2e8f0;
+      --border-strong: #cbd5e1;
+      --text-main: #0f172a;
+      --text-muted: #64748b;
+      --text-light: #94a3b8;
+
+      /* Color Identities for 3 Future Forms */
+      /* 1. Will (Blue - Spontaneous / Decision now) */
+      --will-primary: #2563eb;
+      --will-dark: #1d4ed8;
+      --will-light: #eff6ff;
+      --will-border: #bfdbfe;
+      --will-badge: #dbeafe;
+
+      /* 2. Be Going To (Purple - Prior Plan / Evidence) */
+      --going-primary: #7c3aed;
+      --going-dark: #6d28d9;
+      --going-light: #f5f3ff;
+      --going-border: #ddd6fe;
+      --going-badge: #ede9fe;
+
+      /* 3. Present Progressive (Emerald - Fixed Arrangement) */
+      --prog-primary: #059669;
+      --prog-dark: #047857;
+      --prog-light: #ecfdf5;
+      --prog-border: #a7f3d0;
+      --prog-badge: #d1fae5;
+
+      /* Shadow tokens */
+      --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.07), 0 2px 4px -2px rgb(0 0 0 / 0.05);
+      --shadow-lg: 0 10px 25px -3px rgb(0 0 0 / 0.08), 0 4px 6px -4px rgb(0 0 0 / 0.04);
+      --shadow-glow-will: 0 8px 20px -4px rgba(37, 99, 235, 0.25);
+      --shadow-glow-going: 0 8px 20px -4px rgba(124, 58, 237, 0.25);
+      --shadow-glow-prog: 0 8px 20px -4px rgba(5, 150, 105, 0.25);
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-full: 9999px;
+    }
+
+    /* Dark Mode Theme */
+    body.dark-mode {
+      --bg-base: #090d16;
+      --bg-surface: #111827;
+      --bg-surface-elevated: #1f293d;
+      --border-subtle: #243049;
+      --border-strong: #334155;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --text-light: #64748b;
+
+      --will-light: rgba(37, 99, 235, 0.12);
+      --will-border: rgba(59, 130, 246, 0.3);
+      --will-badge: rgba(59, 130, 246, 0.25);
+
+      --going-light: rgba(124, 58, 237, 0.12);
+      --going-border: rgba(139, 92, 246, 0.3);
+      --going-badge: rgba(139, 92, 246, 0.25);
+
+      --prog-light: rgba(5, 150, 105, 0.12);
+      --prog-border: rgba(16, 185, 129, 0.3);
+      --prog-badge: rgba(16, 185, 129, 0.25);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.25s ease, border-color 0.25s ease;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background-color: var(--bg-base);
+      color: var(--text-main);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* Utility Container */
+    .container {
+      width: 100%;
+      max-width: 1180px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Top Navigation Bar */
+    header.header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 14px 0;
+    }
+    body.dark-mode header.header {
+      background: rgba(17, 24, 39, 0.85);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-main);
+      font-family: var(--font-heading);
+      font-weight: 800;
+      font-size: 1.25rem;
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #2563eb, #7c3aed, #059669);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.3);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-link {
+      padding: 8px 16px;
+      border-radius: var(--radius-full);
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: all 0.2s ease;
+    }
+    .nav-link:hover {
+      color: var(--text-main);
+      background: rgba(0, 0, 0, 0.05);
+    }
+    body.dark-mode .nav-link:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .theme-toggle-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border-subtle);
+      background: var(--bg-surface);
+      color: var(--text-main);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: all 0.2s;
+    }
+    .theme-toggle-btn:hover {
+      background: var(--border-subtle);
+      transform: scale(1.05);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      padding: 60px 0 40px;
+      text-align: center;
+      position: relative;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: var(--radius-full);
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      color: #6366f1;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-title {
+      font-family: var(--font-heading);
+      font-size: 3rem;
+      font-weight: 800;
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      margin-bottom: 18px;
+    }
+
+    .hero-title .highlight-will {
+      background: linear-gradient(135deg, #2563eb, #38bdf8);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-title .highlight-going {
+      background: linear-gradient(135deg, #7c3aed, #c084fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-title .highlight-prog {
+      background: linear-gradient(135deg, #059669, #34d399);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero-subtitle {
+      max-width: 760px;
+      margin: 0 auto 36px;
+      font-size: 1.15rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Hero Summary Badges */
+    .quick-summary-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .quick-card {
+      padding: 20px 24px;
+      border-radius: var(--radius-md);
+      background: var(--bg-surface);
+      border: 2px solid transparent;
+      box-shadow: var(--shadow-md);
+      text-align: left;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .quick-card:hover {
+      transform: translateY(-4px);
+    }
+    .quick-card.will {
+      border-color: var(--will-border);
+      background: linear-gradient(145deg, var(--bg-surface), var(--will-light));
+    }
+    .quick-card.will:hover {
+      box-shadow: var(--shadow-glow-will);
+    }
+    .quick-card.going {
+      border-color: var(--going-border);
+      background: linear-gradient(145deg, var(--bg-surface), var(--going-light));
+    }
+    .quick-card.going:hover {
+      box-shadow: var(--shadow-glow-going);
+    }
+    .quick-card.prog {
+      border-color: var(--prog-border);
+      background: linear-gradient(145deg, var(--bg-surface), var(--prog-light));
+    }
+    .quick-card.prog:hover {
+      box-shadow: var(--shadow-glow-prog);
+    }
+
+    .quick-card-tag {
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .quick-card.will .quick-card-tag { color: var(--will-primary); }
+    .quick-card.going .quick-card-tag { color: var(--going-primary); }
+    .quick-card.prog .quick-card-tag { color: var(--prog-primary); }
+
+    .quick-card-title {
+      font-family: var(--font-heading);
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .quick-card-rule {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+    .quick-card-rule strong {
+      color: var(--text-main);
+    }
+
+    .quick-card-pill {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      font-size: 0.82rem;
+      font-weight: 600;
+      font-family: var(--font-code);
+    }
+    .quick-card.will .quick-card-pill { background: var(--will-badge); color: var(--will-dark); }
+    .quick-card.going .quick-card-pill { background: var(--going-badge); color: var(--going-dark); }
+    .quick-card.prog .quick-card-pill { background: var(--prog-badge); color: var(--prog-dark); }
+
+    /* Topic Detailed Sections */
+    .section-divider {
+      margin: 60px 0 20px;
+      text-align: center;
+    }
+
+    .topic-section {
+      margin: 40px 0 70px;
+      scroll-margin-top: 90px;
+    }
+
+    .topic-card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-lg);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .topic-header {
+      padding: 32px 36px 28px;
+      border-bottom: 1px solid var(--border-subtle);
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+    }
+    .topic-card.theme-will .topic-header {
+      background: linear-gradient(135deg, rgba(37, 99, 235, 0.07) 0%, rgba(37, 99, 235, 0.01) 100%);
+      border-left: 6px solid var(--will-primary);
+    }
+    .topic-card.theme-going .topic-header {
+      background: linear-gradient(135deg, rgba(124, 58, 237, 0.07) 0%, rgba(124, 58, 237, 0.01) 100%);
+      border-left: 6px solid var(--going-primary);
+    }
+    .topic-card.theme-prog .topic-header {
+      background: linear-gradient(135deg, rgba(5, 150, 105, 0.07) 0%, rgba(5, 150, 105, 0.01) 100%);
+      border-left: 6px solid var(--prog-primary);
+    }
+
+    .topic-num-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 12px;
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .theme-will .topic-num-badge { background: var(--will-badge); color: var(--will-dark); }
+    .theme-going .topic-num-badge { background: var(--going-badge); color: var(--going-dark); }
+    .theme-prog .topic-num-badge { background: var(--prog-badge); color: var(--prog-dark); }
+
+    .topic-title {
+      font-family: var(--font-heading);
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 8px;
+    }
+
+    .topic-description {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 780px;
+    }
+
+    .topic-body {
+      padding: 36px;
+    }
+
+    /* Sub-blocks & Grid */
+    .structures-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-bottom: 36px;
+    }
+
+    .structure-box {
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 22px 20px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .structure-type {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      margin-bottom: 12px;
+    }
+    .structure-type.aff { color: #0284c7; }
+    .structure-type.neg { color: #e11d48; }
+    .structure-type.ques { color: #7c3aed; }
+
+    .formula-badge {
+      background: rgba(0, 0, 0, 0.04);
+      border: 1px dashed var(--border-strong);
+      padding: 10px 12px;
+      border-radius: var(--radius-sm);
+      font-family: var(--font-code);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 16px;
+      word-break: break-word;
+      color: var(--text-main);
+    }
+    body.dark-mode .formula-badge {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .example-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: auto;
+    }
+
+    .example-item {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      font-size: 0.95rem;
+      padding: 8px 10px;
+      background: var(--bg-base);
+      border-radius: var(--radius-sm);
+      border-left: 3px solid transparent;
+    }
+    .theme-will .example-item { border-left-color: var(--will-primary); }
+    .theme-going .example-item { border-left-color: var(--going-primary); }
+    .theme-prog .example-item { border-left-color: var(--prog-primary); }
+
+    .example-text {
+      flex: 1;
+    }
+    .example-text strong {
+      color: var(--text-main);
+    }
+    .theme-will .example-text strong { color: var(--will-primary); }
+    .theme-going .example-text strong { color: var(--going-primary); }
+    .theme-prog .example-text strong { color: var(--prog-primary); }
+
+    .tts-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-light);
+      cursor: pointer;
+      padding: 4px 6px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+    .tts-btn:hover {
+      color: var(--text-main);
+      background: rgba(0, 0, 0, 0.08);
+      transform: scale(1.15);
+    }
+
+    /* Key Showcase Callout Box */
+    .key-example-banner {
+      background: var(--bg-base);
+      border-radius: var(--radius-md);
+      padding: 24px 28px;
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      gap: 20px;
+      align-items: center;
+      margin-top: 10px;
+    }
+    .key-example-banner.multi {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 16px;
+    }
+    .key-icon-wrapper {
+      width: 52px;
+      height: 52px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+    .theme-will .key-icon-wrapper { background: var(--will-badge); color: var(--will-primary); }
+    .theme-going .key-icon-wrapper { background: var(--going-badge); color: var(--going-primary); }
+    .theme-prog .key-icon-wrapper { background: var(--prog-badge); color: var(--prog-primary); }
+
+    .key-example-content {
+      flex: 1;
+    }
+
+    .key-quote {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 6px;
+      font-family: var(--font-heading);
+    }
+
+    .key-reason {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .key-reason strong {
+      color: var(--text-main);
+    }
+
+    .key-sub-card {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 18px;
+      background: var(--bg-surface);
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-subtle);
+    }
+
+    /* Quick Comparison Section & Table */
+    .comparison-section {
+      margin: 80px 0;
+    }
+
+    .section-title {
+      font-family: var(--font-heading);
+      font-size: 2.2rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 12px;
+    }
+
+    .section-lead {
+      text-align: center;
+      color: var(--text-muted);
+      max-width: 650px;
+      margin: 0 auto 36px;
+      font-size: 1.05rem;
+    }
+
+    .table-container {
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-lg);
+      overflow-x: auto;
+      margin-bottom: 40px;
+    }
+
+    table.comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    .comparison-table th {
+      background: var(--bg-base);
+      padding: 18px 24px;
+      font-family: var(--font-heading);
+      font-size: 0.95rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.6px;
+      color: var(--text-muted);
+      border-bottom: 2px solid var(--border-subtle);
+    }
+
+    .comparison-table td {
+      padding: 20px 24px;
+      border-bottom: 1px solid var(--border-subtle);
+      vertical-align: middle;
+      font-size: 1rem;
+    }
+
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .comparison-table tr:hover td {
+      background: rgba(0, 0, 0, 0.015);
+    }
+    body.dark-mode .comparison-table tr:hover td {
+      background: rgba(255, 255, 255, 0.02);
+    }
+
+    .form-cell-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      padding: 6px 14px;
+      border-radius: var(--radius-full);
+    }
+    .form-cell-pill.will { background: var(--will-badge); color: var(--will-primary); }
+    .form-cell-pill.going { background: var(--going-badge); color: var(--going-primary); }
+    .form-cell-pill.prog { background: var(--prog-badge); color: var(--prog-primary); }
+
+    /* Easy way to remember (Mnemonic Cards) */
+    .mnemonic-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-bottom: 40px;
+    }
+
+    .mnemonic-card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      padding: 30px 26px;
+      box-shadow: var(--shadow-md);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      transition: all 0.3s ease;
+    }
+    .mnemonic-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .mnemonic-badge {
+      display: inline-block;
+      font-size: 0.8rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 12px;
+    }
+    .mnemonic-card.will .mnemonic-badge { color: var(--will-primary); }
+    .mnemonic-card.going .mnemonic-badge { color: var(--going-primary); }
+    .mnemonic-card.prog .mnemonic-badge { color: var(--prog-primary); }
+
+    .mnemonic-header-formula {
+      font-family: var(--font-heading);
+      font-size: 1.35rem;
+      font-weight: 800;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .mnemonic-header-formula span.arrow {
+      color: var(--text-light);
+      font-size: 1rem;
+    }
+
+    .mnemonic-quote-box {
+      background: var(--bg-base);
+      border-radius: var(--radius-md);
+      padding: 16px 18px;
+      border-left: 4px solid;
+      margin-bottom: 18px;
+      font-style: italic;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .mnemonic-card.will .mnemonic-quote-box { border-left-color: var(--will-primary); }
+    .mnemonic-card.going .mnemonic-quote-box { border-left-color: var(--going-primary); }
+    .mnemonic-card.prog .mnemonic-quote-box { border-left-color: var(--prog-primary); }
+
+    /* "In Short" Banner */
+    .in-short-banner {
+      background: linear-gradient(135deg, #1e1b4b 0%, #0f172a 100%);
+      color: white;
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-lg);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 70px;
+    }
+    .in-short-banner::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(124, 58, 237, 0.3) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .in-short-title {
+      font-family: var(--font-heading);
+      font-size: 1.6rem;
+      font-weight: 800;
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: #f8fafc;
+    }
+    .in-short-title i {
+      color: #38bdf8;
+    }
+
+    .in-short-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .in-short-item {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-md);
+      padding: 20px 22px;
+    }
+
+    .in-short-item .keyword {
+      font-size: 1.15rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .in-short-item.will .keyword { color: #60a5fa; }
+    .in-short-item.going .keyword { color: #c084fc; }
+    .in-short-item.prog .keyword { color: #34d399; }
+
+    .in-short-item .explanation {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: #e2e8f0;
+    }
+
+    /* Interactive Educational Quiz */
+    .quiz-section {
+      background: var(--bg-surface);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-subtle);
+      box-shadow: var(--shadow-lg);
+      padding: 44px;
+      margin-bottom: 80px;
+    }
+
+    .quiz-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .quiz-title-group h3 {
+      font-family: var(--font-heading);
+      font-size: 1.8rem;
+      font-weight: 800;
+    }
+
+    .quiz-score-badge {
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      padding: 8px 18px;
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text-muted);
+    }
+    .quiz-score-badge span {
+      color: #2563eb;
+      font-size: 1.15rem;
+    }
+
+    .quiz-container {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .quiz-card {
+      background: var(--bg-base);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      transition: all 0.2s ease;
+    }
+
+    .quiz-q-num {
+      font-size: 0.8rem;
+      font-weight: 800;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+
+    .quiz-question-text {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 18px;
+    }
+
+    .quiz-options {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .quiz-option-btn {
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border-strong);
+      background: var(--bg-surface);
+      color: var(--text-main);
+      font-size: 0.95rem;
+      font-weight: 600;
+      cursor: pointer;
+      text-align: left;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: all 0.2s;
+    }
+    .quiz-option-btn:hover:not(:disabled) {
+      border-color: #2563eb;
+      background: var(--bg-surface-elevated);
+      transform: translateY(-2px);
+    }
+
+    .quiz-option-btn.correct {
+      background: #dcfce7 !important;
+      border-color: #22c55e !important;
+      color: #14532d !important;
+    }
+    body.dark-mode .quiz-option-btn.correct {
+      background: rgba(34, 197, 94, 0.2) !important;
+      color: #86efac !important;
+    }
+
+    .quiz-option-btn.incorrect {
+      background: #fee2e2 !important;
+      border-color: #ef4444 !important;
+      color: #7f1d1d !important;
+    }
+    body.dark-mode .quiz-option-btn.incorrect {
+      background: rgba(239, 68, 68, 0.2) !important;
+      color: #fca5a5 !important;
+    }
+
+    .quiz-feedback {
+      margin-top: 14px;
+      padding: 12px 16px;
+      border-radius: var(--radius-sm);
+      font-size: 0.95rem;
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+    .quiz-feedback.show {
+      display: flex;
+    }
+    .quiz-feedback.correct-feedback {
+      background: rgba(34, 197, 94, 0.12);
+      color: #166534;
+      border-left: 4px solid #22c55e;
+    }
+    body.dark-mode .quiz-feedback.correct-feedback {
+      color: #86efac;
+    }
+    .quiz-feedback.incorrect-feedback {
+      background: rgba(239, 68, 68, 0.12);
+      color: #991b1b;
+      border-left: 4px solid #ef4444;
+    }
+    body.dark-mode .quiz-feedback.incorrect-feedback {
+      color: #fca5a5;
+    }
+
+    /* Footer */
+    footer.footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 40px 0;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-badge {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 4px 12px;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-full);
+      font-size: 0.8rem;
+      font-weight: 600;
+    }
+
+    /* Toast for Audio Speech */
+    .toast-speech {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #0f172a;
+      color: white;
+      padding: 10px 18px;
+      border-radius: var(--radius-full);
+      font-size: 0.85rem;
+      font-weight: 600;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: all 0.25s ease;
+      pointer-events: none;
+      z-index: 1000;
+    }
+    .toast-speech.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 900px) {
+      .hero-title { font-size: 2.3rem; }
+      .quick-summary-grid,
+      .structures-grid,
+      .mnemonic-grid,
+      .in-short-grid {
+        grid-template-columns: 1fr;
+      }
+      .quiz-options {
+        grid-template-columns: 1fr;
+      }
+      .topic-header {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Navigation -->
+  <header class="header">
+    <div class="container nav-wrapper">
+      <a href="#" class="nav-brand">
+        <div class="brand-icon">
+          <i class="fa-solid fa-bolt"></i>
+        </div>
+        <span>FutureForms English</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#will-section" class="nav-link">1. Will</a>
+        <a href="#going-to-section" class="nav-link">2. Going To</a>
+        <a href="#prog-section" class="nav-link">3. Progressive</a>
+        <a href="#comparison-section" class="nav-link">Comparison</a>
+        <a href="#quiz-section" class="nav-link"><i class="fa-solid fa-graduation-cap"></i> Quiz</a>
+        <button id="themeToggleBtn" class="theme-toggle-btn" title="Toggle dark/light mode">
+          <i class="fa-regular fa-moon"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <main class="container">
+    <section class="hero-section">
+      <div class="hero-badge">
+        <i class="fa-solid fa-compass"></i> English Grammar Masterclass
+      </div>
+      <h1 class="hero-title">
+        Future: <span class="highlight-will">“Will”</span>, <span class="highlight-going">“Be Going To”</span> &amp; <span class="highlight-prog">“Present Progressive”</span>
+      </h1>
+      <p class="hero-subtitle">
+        In English, we can talk about the future using <strong>will</strong>, <strong>be going to</strong>, and the <strong>present progressive</strong>. Although all three can refer to future events, they are used in distinct communicative situations.
+      </p>
+
+      <!-- Quick Concept Cards -->
+      <div class="quick-summary-grid">
+        <div class="quick-card will" onclick="scrollToElement('will-section')">
+          <div class="quick-card-tag"><i class="fa-solid fa-bolt"></i> Instant Decision</div>
+          <h3 class="quick-card-title">1. WILL</h3>
+          <p class="quick-card-rule">Decisions made <strong>at the moment</strong> of speaking, promises &amp; predictions.</p>
+          <span class="quick-card-pill">“I will go to bed early.”</span>
+        </div>
+
+        <div class="quick-card going" onclick="scrollToElement('going-to-section')">
+          <div class="quick-card-tag"><i class="fa-solid fa-lightbulb"></i> Prior Plan &amp; Evidence</div>
+          <h3 class="quick-card-title">2. BE GOING TO</h3>
+          <p class="quick-card-rule">Plans decided <strong>before speaking</strong> or predictions with direct evidence.</p>
+          <span class="quick-card-pill">“It is going to rain.”</span>
+        </div>
+
+        <div class="quick-card prog" onclick="scrollToElement('prog-section')">
+          <div class="quick-card-tag"><i class="fa-solid fa-calendar-check"></i> Fixed Arrangement</div>
+          <h3 class="quick-card-title">3. PRESENT PROGRESSIVE</h3>
+          <p class="quick-card-rule">Definite appointments organized with <strong>specific time or place</strong>.</p>
+          <span class="quick-card-pill">“I am meeting him at 3 p.m.”</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 1: WILL ==================== -->
+    <section id="will-section" class="topic-section">
+      <div class="topic-card theme-will">
+        <div class="topic-header">
+          <div>
+            <span class="topic-num-badge"><i class="fa-solid fa-1"></i> Grammar Module</span>
+            <h2 class="topic-title">1. WILL</h2>
+            <p class="topic-description">
+              <strong>Will</strong> is used mainly for <em>decisions made at the moment</em>, predictions, promises, offers, and future facts.
+            </p>
+          </div>
+        </div>
+
+        <div class="topic-body">
+          <div class="structures-grid">
+            <!-- Affirmative -->
+            <div class="structure-box">
+              <div class="structure-type aff">
+                <i class="fa-solid fa-circle-plus"></i> Affirmative
+              </div>
+              <div class="formula-badge">
+                Subject + will + verb + complement
+              </div>
+              <ul class="example-list">
+                <li class="example-item">
+                  <span class="example-text">I <strong>will study</strong> tonight.</span>
+                  <button class="tts-btn" onclick="speakText('I will study tonight.')" title="Listen pronunciation"><i class="fa-solid fa-volume-high"></i></button>
+                </li>
+                <li class="example-item">
+                  <span class="example-text">She <strong>will call</strong> you tomorrow.</span>
+                  <button class="tts-btn" onclick="speakText('She will call you tomorrow.')" title="Listen pronunciation"><i class="fa-solid fa-volume-high"></i></button>
+                </li>
+                <li class="example-item">
+                  <span class="example-text">They <strong>will arrive</strong> soon.</span>
+                  <button class="tts-btn" onclick="speakText('They will arrive soon.')" title="Listen pronunciation"><i class="fa-solid fa-volume-high"></i></button>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Negative -->
+            <div class="structure-box">
+              <div class="structure-type neg">
+                <i class="fa-solid fa-circle-minus"></i> Negative
+              </div>
+              <div class="formula-badge">
+                Subject + will not (won't) + verb + complement
+              </div>
+              <ul class="example-list">
+                <li class="example-item">
+                  <span class="example-text">I <strong>won't study</strong> tonight.</span>
+                  <button class="tts-btn" onclick="speakText('I won\'t study tonight.')" title="Listen pronunciation"><i class="fa-solid fa-volume-high"></i></button>
+                </li>
+                <li class="example-item">
+                  <span class="example-text">He <strong>won't come</strong> to the party.</span>
+                  <button class="tts-btn" onclick="speakText('He won\'t come to the party.')" title="Listen pronunciation"><i class="fa-solid fa-volume-high"></i></button>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Question -->
+            <div class="structure-box">
+              <div class="structure-type ques">
+                <i class="fa-solid fa-circle-question"></i> Question
+              </div>
+              <div class="formula-badge">
+                Will + subject + verb + complement?
+              </div>
+              <ul class="example-list">
+                <li class="example-item">
+                  <span class="example-text"><strong>Will you study</strong> tonight?</span>
+                  <button class="tts-btn" onclick="speakText('Will you study tonight?')" title="Listen pronunciation"><i class="fa-solid fa-volume-high"></i></button>
+                </li>
+                <li class="example-item">
+                  <span class="example-text"><strong>Will she come</strong> tomorrow?</span>
+                  <button class="tts-btn" onclick="speakText('Will she come tomorrow?')" title="Listen pronunciation"><i class="fa-solid fa-volume-high"></i></button>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Highlight Example -->
+          <div class="key-example-banner">
+            <div class="key-icon-wrapper">
+              <i class="fa-solid fa-bolt"></i>
+            </div>
+            <div class="key-example-content">
+              <div class="key-quote">“I am tired. I will go to bed early.”</div>
+              <div class="key-reason">
+                <i class="fa-solid fa-arrow-right"></i>
+                <span>The decision is made <strong>at the moment of speaking</strong> (spontaneous reaction).</span>
+              </div>
+            </div>
+            <button class="tts-btn" style="font-size: 1.2rem;" onclick="speakText('I am tired. I will go to bed early.')"><i class="fa-solid fa-volume-high"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 2: BE GOING TO ==================== -->
+    <section id="going-to-section" class="topic-section">
+      <div class="topic-card theme-going">
+        <div class="topic-header">
+          <div>
+            <span class="topic-num-badge"><i class="fa-solid fa-2"></i> Grammar Module</span>
+            <h2 class="topic-title">2. BE GOING TO</h2>
+            <p class="topic-description">
+              <strong>Be going to</strong> is used for <em>plans or intentions</em> that were decided <strong>before speaking</strong>. It is also used for <em>predictions when there is evidence</em> that something is going to happen.
+            </p>
+          </div>
+        </div>
+
+        <div class="topic-body">
+          <div class="structures-grid">
+            <!-- Affirmative -->
+            <div class="structure-box">
+              <div class="structure-type aff">
+                <i class="fa-solid fa-circle-plus"></i> Affirmative
+              </div>
+              <div class="formula-badge">
+                Subject + am/is/are + going to + verb + complement
+              </div>
+              <ul class="example-list">
+                <li class="example-item">
+                  <span class="example-text">I <strong>am going to study</strong> tonight.</span>
+                  <button class="tts-btn" onclick="speakText('I am going to study tonight.')"><i class="fa-solid fa-volume-high"></i></button>
+                </li>
+                <li class="example-item">
+                  <span class="example-text">She <strong>is going to buy</strong> a new computer.</span>
+                  <button class="tts-btn" onclick="speakText('She is going to buy a new computer.')"><i class="fa-solid fa-volume-high"></i></button>
+                </li>
+                <li class="example-item">
+                  <span class="example-text">They <strong>are going to travel</strong> next week.</span>
+                  <button class="tts-btn" onclick="speakText('They are going to travel next week.')"><i class="fa-solid fa-volume-high"></i></button>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Negative -->
+            <div class="structure-box">
+              <div class="structure-type neg">
+                <i class="fa-solid fa-circle-minus"></i> Negative
+              </div>
+              <div class="formula-badge">
+                Subject + am/is/are + not + going to + verb
+              </div>
+              <ul class="example-list">
+                <li class="example-item">
+                  <span class="example-text">I <strong>am not going to study</strong> tonight.</span>
+                  <button class="tts-btn" onclick="speakText('I am not going to study tonight.')"><i class="fa-solid fa-volume-high"></i></button>
+                </li>
+                <li class="example-item">
+                  <span class="example-text">He <strong>isn't going to play</strong> tomorrow.</span>
+                  <button class="tts-btn" onclick="speakText('He isn\'t going to play tomorrow.')"><i class="fa-solid fa-volume-high"></i></button>
+                </li>
+                <li class="example-item">
+                  <span class="example-text">They <strong>aren't going to travel</strong> this weekend.</span>
+                  <button class="tts-btn" onclick="speakText('They aren\'t going to travel this weekend.')"><i class="fa-solid fa-volume-high"></i></button>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Question -->
+            <div class="structure-box">
+              <div class="structure-type ques">
+                <i class="fa-solid fa-circle-question"></i> Question
+              </div>
+              <div class="formula-badge">
+                Am/Is/Are + subject + going to + verb?
+              </div>
+              <ul class="example-list">
+                <li class="example-item">
+                  <span class="example-text"><strong>Are you going to study</strong> tonight?</span>
+                  <button class="tts-btn" onclick="speakText('Are you going to study tonight?')"><i class="fa-solid fa-volume-high"></i></button>
+                </li>
+                <li class="example-item">
+                  <span class="example-text"><strong>Is she going to travel</strong> tomorrow?</span>
+                  <button class="tts-btn" onclick="speakText('Is she going to travel tomorrow?')"><i class="fa-solid fa-volume-high"></i></button>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Highlight Examples: Plan & Evidence -->
+          <div class="key-example-banner multi">
+            <div class="key-sub-card">
+              <div class="key-icon-wrapper" style="width: 44px; height: 44px; font-size: 1.2rem;">
+                <i class="fa-regular fa-calendar-check"></i>
+              </div>
+              <div class="key-example-content">
+                <div class="key-quote">“I am going to study tonight because I have an exam tomorrow.”</div>
+                <div class="key-reason">
+                  <i class="fa-solid fa-arrow-right"></i>
+                  <span>The plan was decided <strong>before speaking</strong>.</span>
+                </div>
+              </div>
+              <button class="tts-btn" onclick="speakText('I am going to study tonight because I have an exam tomorrow.')"><i class="fa-solid fa-volume-high"></i></button>
+            </div>
+
+            <div class="key-sub-card">
+              <div class="key-icon-wrapper" style="width: 44px; height: 44px; font-size: 1.2rem;">
+                <i class="fa-solid fa-cloud-showers-heavy"></i>
+              </div>
+              <div class="key-example-content">
+                <div class="key-quote">“Look at those clouds! It is going to rain.”</div>
+                <div class="key-reason">
+                  <i class="fa-solid fa-arrow-right"></i>
+                  <span>Prediction with immediate evidence: <strong>the clouds</strong>.</span>
+                </div>
+              </div>
+              <button class="tts-btn" onclick="speakText('Look at those clouds! It is going to rain.')"><i class="fa-solid fa-volume-high"></i></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SECTION 3: PRESENT PROGRESSIVE ==================== -->
+    <section id="prog-section" class="topic-section">
+      <div class="topic-card theme-prog">
+        <div class="topic-header">
+          <div>
+            <span class="topic-num-badge"><i class="fa-solid fa-3"></i> Grammar Module</span>
+            <h2 class="topic-title">3. PRESENT PROGRESSIVE</h2>
+            <p class="topic-description">
+              The <strong>present progressive</strong> can also be used to talk about the future when we have a <em>definite arrangement or appointment</em>, usually with a <strong>specific time or place</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="topic-body">
+          <div class="structures-grid">
+            <!-- Affirmative -->
+            <div class="structure-box">
+              <div class="structure-type aff">
+                <i class="fa-solid fa-circle-plus"></i> Affirmative
+              </div>
+              <div class="formula-badge">
+                Subject + am/is/are + verb-ing + complement
+              </div>
+              <ul class="example-list">
+                <li class="example-item">
+                  <span class="example-text">I <strong>am meeting</strong> my friend tomorrow.</span>
+                  <button class="tts-btn" onclick="speakText('I am meeting my friend tomorrow.')"><i class="fa-solid fa-volume-high"></i></button>
+                </li>
+                <li class="example-item">
+                  <span class="example-text">She <strong>is traveling</strong> to Bogotá next Monday.</span>
+                  <button class="tts-btn" onclick="speakText('She is traveling to Bogotá next Monday.')"><i class="fa-solid fa-volume-high"></i></button>
+                </li>
+                <li class="example-item">
+                  <span class="example-text">We <strong>are having</strong> a meeting at 10 a.m.</span>
+                  <button class="tts-btn" onclick="speakText('We are having a meeting at 10 a.m.')"><i class="fa-solid fa-volume-high"></i></button>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Negative -->
+            <div class="structure-box">
+              <div class="structure-type neg">
+                <i class="fa-solid fa-circle-minus"></i> Negative
+              </div>
+              <div class="formula-badge">
+                Subject + am/is/are + not + verb-ing
+              </div>
+              <ul class="example-list">
+                <li class="example-item">
+                  <span class="example-text">I <strong>am not working</strong> tomorrow.</span>
+                  <button class="tts-btn" onclick="speakText('I am not working tomorrow.')"><i class="fa-solid fa-volume-high"></i></button>
+                </li>
+                <li class="example-item">
+                  <span class="example-text">He <strong>isn't coming</strong> to class.</span>
+                  <button class="tts-btn" onclick="speakText('He isn\'t coming to class.')"><i class="fa-solid fa-volume-high"></i></button>
+                </li>
+                <li class="example-item">
+                  <span class="example-text">They <strong>aren't traveling</strong> next week.</span>
+                  <button class="tts-btn" onclick="speakText('They aren\'t traveling next week.')"><i class="fa-solid fa-volume-high"></i></button>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Question -->
+            <div class="structure-box">
+              <div class="structure-type ques">
+                <i class="fa-solid fa-circle-question"></i> Question
+              </div>
+              <div class="formula-badge">
+                Am/Is/Are + subject + verb-ing + complement?
+              </div>
+              <ul class="example-list">
+                <li class="example-item">
+                  <span class="example-text"><strong>Are you meeting</strong> your friend tomorrow?</span>
+                  <button class="tts-btn" onclick="speakText('Are you meeting your friend tomorrow?')"><i class="fa-solid fa-volume-high"></i></button>
+                </li>
+                <li class="example-item">
+                  <span class="example-text"><strong>Is she coming</strong> to the party?</span>
+                  <button class="tts-btn" onclick="speakText('Is she coming to the party?')"><i class="fa-solid fa-volume-high"></i></button>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Highlight Example -->
+          <div class="key-example-banner">
+            <div class="key-icon-wrapper">
+              <i class="fa-regular fa-clock"></i>
+            </div>
+            <div class="key-example-content">
+              <div class="key-quote">“I am meeting my professor at 3 p.m. tomorrow.”</div>
+              <div class="key-reason">
+                <i class="fa-solid fa-arrow-right"></i>
+                <span>This is a future arrangement that has <strong>already been organized</strong> on the schedule.</span>
+              </div>
+            </div>
+            <button class="tts-btn" style="font-size: 1.2rem;" onclick="speakText('I am meeting my professor at 3 p.m. tomorrow.')"><i class="fa-solid fa-volume-high"></i></button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== QUICK COMPARISON ==================== -->
+    <section id="comparison-section" class="comparison-section">
+      <h2 class="section-title">Quick Comparison</h2>
+      <p class="section-lead">
+        A concise overview to help you select the exact right future construction instantly.
+      </p>
+
+      <div class="table-container">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th style="width: 25%;">Form</th>
+              <th style="width: 45%;">Main Use</th>
+              <th style="width: 30%;">Example</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <span class="form-cell-pill will">
+                  <i class="fa-solid fa-bolt"></i> Will
+                </span>
+              </td>
+              <td>Decision at the moment, prediction, promise</td>
+              <td>
+                I <strong>will help</strong> you.
+                <button class="tts-btn" onclick="speakText('I will help you.')"><i class="fa-solid fa-volume-high"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="form-cell-pill going">
+                  <i class="fa-solid fa-lightbulb"></i> Be going to
+                </span>
+              </td>
+              <td>Plan or intention decided before, prediction with evidence</td>
+              <td>
+                I <strong>am going to study</strong> tonight.
+                <button class="tts-btn" onclick="speakText('I am going to study tonight.')"><i class="fa-solid fa-volume-high"></i></button>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <span class="form-cell-pill prog">
+                  <i class="fa-solid fa-calendar-check"></i> Present Progressive
+                </span>
+              </td>
+              <td>Definite future arrangement (time &amp; place fixed)</td>
+              <td>
+                I <strong>am meeting</strong> my friend tomorrow.
+                <button class="tts-btn" onclick="speakText('I am meeting my friend tomorrow.')"><i class="fa-solid fa-volume-high"></i></button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Easy Way to Remember -->
+      <h3 style="font-family: var(--font-heading); font-size: 1.8rem; font-weight: 800; text-align: center; margin-bottom: 24px;">
+        <i class="fa-solid fa-brain" style="color: #6366f1;"></i> Easy Way to Remember
+      </h3>
+
+      <div class="mnemonic-grid">
+        <div class="mnemonic-card will">
+          <span class="mnemonic-badge">Spontaneous</span>
+          <div class="mnemonic-header-formula">
+            WILL <span class="arrow">→</span> Decision now
+          </div>
+          <div class="mnemonic-quote-box">
+            <span>“I'm hungry.” → “I <strong>will make</strong> a sandwich.”</span>
+            <button class="tts-btn" onclick="speakText('I\'m hungry. I will make a sandwich.')"><i class="fa-solid fa-volume-high"></i></button>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">Decided in the exact moment you felt the sensation.</p>
+        </div>
+
+        <div class="mnemonic-card going">
+          <span class="mnemonic-badge">Intention</span>
+          <div class="mnemonic-header-formula">
+            GOING TO <span class="arrow">→</span> Plan already decided
+          </div>
+          <div class="mnemonic-quote-box">
+            <span>“I have an exam tomorrow.” → “I <strong>am going to study</strong> tonight.”</span>
+            <button class="tts-btn" onclick="speakText('I have an exam tomorrow. I am going to study tonight.')"><i class="fa-solid fa-volume-high"></i></button>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">The plan existed before this conversation began.</p>
+        </div>
+
+        <div class="mnemonic-card prog">
+          <span class="mnemonic-badge">Scheduled</span>
+          <div class="mnemonic-header-formula">
+            PRESENT PROGRESSIVE <span class="arrow">→</span> Organized arrangement
+          </div>
+          <div class="mnemonic-quote-box">
+            <span>“I have an appointment at 3.” → “I <strong>am meeting</strong> my professor at 3.”</span>
+            <button class="tts-btn" onclick="speakText('I have an appointment at 3. I am meeting my professor at 3.')"><i class="fa-solid fa-volume-high"></i></button>
+          </div>
+          <p style="font-size: 0.9rem; color: var(--text-muted);">Confirmed with another person and in the agenda.</p>
+        </div>
+      </div>
+
+      <!-- In Short Banner -->
+      <div class="in-short-banner">
+        <div class="in-short-title">
+          <i class="fa-solid fa-key"></i> In Short: The Golden Rule
+        </div>
+        <div class="in-short-grid">
+          <div class="in-short-item will">
+            <div class="keyword"><i class="fa-solid fa-bolt"></i> Will</div>
+            <div class="explanation">= I decide now.</div>
+          </div>
+          <div class="in-short-item going">
+            <div class="keyword"><i class="fa-solid fa-lightbulb"></i> Going to</div>
+            <div class="explanation">= I already have a plan.</div>
+          </div>
+          <div class="in-short-item prog">
+            <div class="keyword"><i class="fa-solid fa-calendar-check"></i> Present Progressive</div>
+            <div class="explanation">= I have a fixed arrangement.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== INTERACTIVE QUIZ ==================== -->
+    <section id="quiz-section" class="quiz-section">
+      <div class="quiz-header">
+        <div class="quiz-title-group">
+          <h3><i class="fa-solid fa-vial-circle-check" style="color: #2563eb;"></i> Quick Practice &amp; Knowledge Check</h3>
+          <p style="color: var(--text-muted); font-size: 0.95rem; margin-top: 4px;">Choose the best future form for each realistic scenario.</p>
+        </div>
+        <div class="quiz-score-badge">
+          Score: <span id="quizScore">0</span> / 4
+        </div>
+      </div>
+
+      <div class="quiz-container">
+        <!-- Question 1 -->
+        <div class="quiz-card" data-correct="A">
+          <div class="quiz-q-num">Question 1</div>
+          <div class="quiz-question-text">
+            "The phone is ringing!" &mdash; "Don't worry, I ______ it."
+          </div>
+          <div class="quiz-options">
+            <button class="quiz-option-btn" onclick="checkAnswer(this, 'A')"><span>A. will answer</span></button>
+            <button class="quiz-option-btn" onclick="checkAnswer(this, 'B')"><span>B. am going to answer</span></button>
+            <button class="quiz-option-btn" onclick="checkAnswer(this, 'C')"><span>C. am answering</span></button>
+          </div>
+          <div class="quiz-feedback">
+            <i class="fa-solid fa-circle-info"></i>
+            <span><strong>Correct!</strong> A spontaneous decision made right at the moment of hearing the phone.</span>
+          </div>
+        </div>
+
+        <!-- Question 2 -->
+        <div class="quiz-card" data-correct="B">
+          <div class="quiz-q-num">Question 2</div>
+          <div class="quiz-question-text">
+            "Watch out! That ladder is shaking! You ______ fall!"
+          </div>
+          <div class="quiz-options">
+            <button class="quiz-option-btn" onclick="checkAnswer(this, 'A')"><span>A. will</span></button>
+            <button class="quiz-option-btn" onclick="checkAnswer(this, 'B')"><span>B. are going to</span></button>
+            <button class="quiz-option-btn" onclick="checkAnswer(this, 'C')"><span>C. are falling</span></button>
+          </div>
+          <div class="quiz-feedback">
+            <i class="fa-solid fa-circle-info"></i>
+            <span><strong>Spot on!</strong> Prediction based on clear present evidence (the shaking ladder).</span>
+          </div>
+        </div>
+
+        <!-- Question 3 -->
+        <div class="quiz-card" data-correct="C">
+          <div class="quiz-q-num">Question 3</div>
+          <div class="quiz-question-text">
+            "I booked the doctor's appointment yesterday. I ______ him tomorrow at 9:00 AM."
+          </div>
+          <div class="quiz-options">
+            <button class="quiz-option-btn" onclick="checkAnswer(this, 'A')"><span>A. will see</span></button>
+            <button class="quiz-option-btn" onclick="checkAnswer(this, 'B')"><span>B. go to see</span></button>
+            <button class="quiz-option-btn" onclick="checkAnswer(this, 'C')"><span>C. am seeing</span></button>
+          </div>
+          <div class="quiz-feedback">
+            <i class="fa-solid fa-circle-info"></i>
+            <span><strong>Excellent!</strong> A definite, pre-scheduled arrangement with a specific time and appointment.</span>
+          </div>
+        </div>
+
+        <!-- Question 4 -->
+        <div class="quiz-card" data-correct="B">
+          <div class="quiz-q-num">Question 4</div>
+          <div class="quiz-question-text">
+            "Why did you buy all this paint?" &mdash; "Because I ______ repaint my bedroom this weekend."
+          </div>
+          <div class="quiz-options">
+            <button class="quiz-option-btn" onclick="checkAnswer(this, 'A')"><span>A. will</span></button>
+            <button class="quiz-option-btn" onclick="checkAnswer(this, 'B')"><span>B. am going to</span></button>
+            <button class="quiz-option-btn" onclick="checkAnswer(this, 'C')"><span>C. repainting</span></button>
+          </div>
+          <div class="quiz-feedback">
+            <i class="fa-solid fa-circle-info"></i>
+            <span><strong>Exactly!</strong> A prior intention and plan decided before the conversation took place.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Audio Toast Notification -->
+  <div id="speechToast" class="toast-speech">
+    <i class="fa-solid fa-volume-high"></i>
+    <span id="speechToastText">Playing audio...</span>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <p>Educational Grammar Resource &bull; <strong>Future Tenses in English</strong></p>
+      <div class="footer-badge">
+        <i class="fa-solid fa-heart" style="color: #ec4899;"></i> Designed for English Learners
+      </div>
+    </div>
+  </footer>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    // Smooth Scroll Helper
+    function scrollToElement(id) {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+
+    // Dark Mode Toggle
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+    themeToggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      const isDark = document.body.classList.contains('dark-mode');
+      themeToggleBtn.innerHTML = isDark ? '<i class="fa-regular fa-sun"></i>' : '<i class="fa-regular fa-moon"></i>';
+    });
+
+    // Text to Speech Functionality
+    const toast = document.getElementById('speechToast');
+    const toastText = document.getElementById('speechToastText');
+    let toastTimeout;
+
+    function speakText(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel(); // Stop any pending speech
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = 'en-US';
+        utterance.rate = 0.92; // Slightly natural pace for learners
+
+        // Show toast
+        toastText.textContent = `Speaking: "${text}"`;
+        toast.classList.add('active');
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+          toast.classList.remove('active');
+        }, 2400);
+
+        window.speechSynthesis.speak(utterance);
+      } else {
+        alert('Text-to-speech is not supported by your browser.');
+      }
+    }
+
+    // Quiz Interaction Logic
+    let currentScore = 0;
+    const answeredCards = new Set();
+
+    function checkAnswer(buttonEl, selectedOption) {
+      const card = buttonEl.closest('.quiz-card');
+      const correctOption = card.getAttribute('data-correct');
+      const feedbackEl = card.querySelector('.quiz-feedback');
+      const buttons = card.querySelectorAll('.quiz-option-btn');
+
+      // Prevent answering multiple times for scoring
+      if (card.classList.contains('evaluated')) return;
+      card.classList.add('evaluated');
+
+      // Disable all buttons in this card
+      buttons.forEach(btn => btn.disabled = true);
+
+      if (selectedOption === correctOption) {
+        buttonEl.classList.add('correct');
+        feedbackEl.classList.add('correct-feedback', 'show');
+        currentScore++;
+        document.getElementById('quizScore').textContent = currentScore;
+      } else {
+        buttonEl.classList.add('incorrect');
+        feedbackEl.classList.add('incorrect-feedback', 'show');
+        feedbackEl.innerHTML = `<i class="fa-solid fa-triangle-exclamation"></i> <span><strong>Not quite!</strong> Correct answer was <strong>${correctOption}</strong>. Review the rule above!</span>`;
+        // Highlight correct button
+        buttons.forEach(btn => {
+          if (btn.textContent.trim().startsWith(correctOption)) {
+            btn.classList.add('correct');
+          }
+        });
+      }
+    }
+  </script>
+</body>
+</html>
